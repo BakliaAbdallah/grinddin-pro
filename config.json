@@ -1,0 +1,17 @@
+{
+  "productName": "Grinddin Oracle PRO",
+  "pricing": {
+    "oneTime": 29.00,
+    "currency": "USD",
+    "monthly": 25.00,
+    "label": "6-month License — First 100 Users"
+  },
+  "copy": {
+    "headline": "Market Awareness. Not Predictions.",
+    "subheadline": "A simple, high-confluence market awareness dashboard that helps retail traders map out clean targets and see the bigger picture before executing."
+  },
+  "flutterwave": {
+    "publicKey": "REPLACE_WITH_TEST_KEY"
+  },
+  "redirectUrl": "/onboarding"
+}
