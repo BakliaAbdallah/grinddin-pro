@@ -78,9 +78,10 @@ const testimonials = [
   { initial: "R", name: "Rajesh P.",  country: "India",         code: "IN", text: "Clean, powerful, and easy to read. This indicator improved my consistency a lot.", img: null },
   { initial: "M", name: "Mei L.",     country: "Singapore",     code: "SG", text: "Perfect for both new and experienced traders. Everything in one view!", img: null },
   { initial: "T", name: "Thabo M.",   country: "South Africa",  code: "ZA", text: "Helps me avoid bad sessions and focus only when the market is right. Great tool!", img: null },
-  // Two additional slots — drop image URLs or leave img: null for initial avatar
+  // Additional slots — set img to a URL to show a photo, or leave null for initial avatar
   { initial: "A", name: "Amara S.",   country: "Ghana",         code: "GH", text: "I was sceptical at first but the bias panel alone is worth every penny. Highly recommend.", img: null },
   { initial: "J", name: "James O.",   country: "United Kingdom", code: "GB", text: "News events panel kept me out of two terrible trades last week. This is essential.", img: null },
+  { initial: "C", name: "Carlos V.",  country: "Brazil",        code: "BR", text: "The ADR and volatility section changed how I size my positions. No more guessing the range.", img: null },
 ];
 
 const faqItems = [
@@ -328,27 +329,32 @@ function Index() {
       </section>
 
       {/* ── Pricing ─────────────────────────────────────────────── */}
-      <section id="pricing" className="border-t border-gray-100">
-        <div className="mx-auto max-w-screen-xl px-6 py-12 md:px-12 md:py-16">
-          <div className="text-center mb-10">
-            <p className="text-xs font-bold tracking-[0.2em] text-primary uppercase mb-3">Pricing</p>
-            <h2 className="text-3xl font-[800] md:text-4xl">Simple, One-Time Access</h2>
-            <p className="mt-3 text-sm text-muted-foreground max-w-md mx-auto">
-              No monthly fees. No subscriptions. Pay once and trade with full clarity.
-            </p>
-          </div>
+      <section id="pricing" className="border-t border-gray-100 bg-gray-50/60">
+        <div className="mx-auto max-w-screen-xl px-6 py-14 md:px-12 md:py-20">
 
-          <div className="mx-auto max-w-md">
-            <div className="rounded-2xl border-2 border-primary/20 bg-white shadow-xl shadow-primary/5 overflow-hidden">
-              {/* Top band */}
-              <div className="bg-primary px-8 py-5 text-white text-center">
-                <p className="text-xs font-bold tracking-[0.18em] uppercase opacity-80 mb-1">{pricing.label}</p>
-                <div className="text-5xl font-[900] leading-none">{price}</div>
-                <p className="mt-1 text-xs opacity-70">One-time payment · Lifetime access</p>
+          {/* Two-column layout */}
+          <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 lg:items-center">
+
+            {/* LEFT — headline + what's included */}
+            <div>
+              <p className="text-xs font-bold tracking-[0.2em] text-primary uppercase mb-4">Pricing</p>
+              <h2 className="text-3xl font-[800] md:text-[2.75rem] leading-[1.1]">One payment.<br />Full clarity, forever.</h2>
+              <p className="mt-4 text-sm text-muted-foreground leading-relaxed max-w-sm">
+                No monthly fees. No subscriptions. No surprises. Get access once and use Grinddin Pro for as long as you trade.
+              </p>
+
+              {/* Social proof strip */}
+              <div className="mt-8 flex items-center gap-3">
+                <div className="flex gap-0.5 text-amber-400">
+                  {Array.from({ length: 5 }).map((_, i) => <Star key={i} className="h-4 w-4 fill-current" />)}
+                </div>
+                <span className="text-sm font-semibold">Trusted by 1,000+ traders</span>
+                <span className="text-xs text-muted-foreground">across 30+ countries</span>
               </div>
 
-              {/* Features list */}
-              <div className="px-8 py-7">
+              {/* What's included */}
+              <div className="mt-8">
+                <p className="text-xs font-bold tracking-[0.15em] uppercase text-muted-foreground mb-4">What's included</p>
                 <ul className="space-y-3">
                   {[
                     "1D & 4H Bias panel",
@@ -366,19 +372,50 @@ function Index() {
                     </li>
                   ))}
                 </ul>
-
-                <a
-                  href="/checkout"
-                  id="pricing-cta"
-                  className="mt-8 flex w-full items-center justify-center gap-2 rounded-xl bg-primary py-3.5 text-sm font-semibold text-white shadow-lg shadow-primary/30 transition hover:bg-primary/90"
-                >
-                  Get Access Now <ArrowRight className="h-4 w-4" />
-                </a>
-                <p className="mt-3 text-center text-xs text-muted-foreground">
-                  🔒 Secure checkout · Access delivered within minutes
-                </p>
               </div>
             </div>
+
+            {/* RIGHT — price card */}
+            <div className="flex justify-center lg:justify-end">
+              <div className="w-full max-w-sm rounded-2xl border-2 border-primary/20 bg-white shadow-2xl shadow-primary/10 overflow-hidden">
+                {/* Header band */}
+                <div className="bg-primary px-8 pt-8 pb-6 text-white text-center">
+                  <span className="inline-block rounded-full border border-white/30 bg-white/10 px-3 py-1 text-[10px] font-bold tracking-[0.15em] uppercase mb-4">
+                    {pricing.label}
+                  </span>
+                  <div className="text-[4rem] font-[900] leading-none">{price}</div>
+                  <p className="mt-2 text-xs opacity-70">One-time · No recurring fees</p>
+                </div>
+
+                {/* Card body */}
+                <div className="px-8 py-7">
+                  <a
+                    href="/checkout"
+                    id="pricing-cta"
+                    className="flex w-full items-center justify-center gap-2 rounded-xl bg-primary py-4 text-sm font-bold text-white shadow-lg shadow-primary/30 transition hover:bg-primary/90"
+                  >
+                    Get Access Now <ArrowRight className="h-4 w-4" />
+                  </a>
+                  <p className="mt-3 text-center text-xs text-muted-foreground">
+                    🔒 Secure checkout · Access delivered within minutes
+                  </p>
+
+                  <div className="mt-6 border-t border-gray-100 pt-5 space-y-3">
+                    {[
+                      { icon: "⚡", text: "Instant access after payment" },
+                      { icon: "🔒", text: "Safe & encrypted checkout" },
+                      { icon: "📊", text: "Works on TradingView free plan" },
+                    ].map(({ icon, text }) => (
+                      <div key={text} className="flex items-center gap-2.5">
+                        <span className="text-base leading-none">{icon}</span>
+                        <span className="text-xs text-muted-foreground">{text}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
       </section>
