@@ -397,17 +397,17 @@ function Index() {
                     Get Access Now <ArrowRight className="h-4 w-4" />
                   </a>
                   <p className="mt-3 text-center text-xs text-muted-foreground">
-                    🔒 Secure checkout · Access delivered within minutes
+                    Secure checkout · Access delivered within minutes
                   </p>
 
                   <div className="mt-6 border-t border-gray-100 pt-5 space-y-3">
-                    {[
-                      { icon: "⚡", text: "Instant access after payment" },
-                      { icon: "🔒", text: "Safe & encrypted checkout" },
-                      { icon: "📊", text: "Works on TradingView free plan" },
-                    ].map(({ icon, text }) => (
+                    {([
+                      { Icon: Zap,        text: "Instant access after payment" },
+                      { Icon: ShieldCheck, text: "Safe & encrypted checkout" },
+                      { Icon: BarChart2,  text: "Works on TradingView free plan" },
+                    ] as const).map(({ Icon, text }) => (
                       <div key={text} className="flex items-center gap-2.5">
-                        <span className="text-base leading-none">{icon}</span>
+                        <Icon className="h-3.5 w-3.5 shrink-0 text-primary" />
                         <span className="text-xs text-muted-foreground">{text}</span>
                       </div>
                     ))}
