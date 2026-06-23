@@ -345,7 +345,7 @@ function Index() {
 
               {/* Social proof strip */}
               <div className="mt-8 flex items-center gap-3">
-                <div className="flex gap-0.5 text-amber-400">
+                <div className="flex gap-0.5 text-primary">
                   {Array.from({ length: 5 }).map((_, i) => <Star key={i} className="h-4 w-4 fill-current" />)}
                 </div>
                 <span className="text-sm font-semibold">Trusted by 1,000+ traders</span>
@@ -452,7 +452,7 @@ function Index() {
                   </div>
                   <Quote className="h-4 w-4 rotate-180 text-muted-foreground/40" />
                 </div>
-                <div className="mt-3 flex gap-0.5 text-amber-400">
+                <div className="mt-3 flex gap-0.5 text-primary">
                   {Array.from({ length: 5 }).map((_, i) => <Star key={i} className="h-4 w-4 fill-current" />)}
                 </div>
                 <p className="mt-3 text-sm leading-relaxed text-foreground/80">{t.text}</p>
