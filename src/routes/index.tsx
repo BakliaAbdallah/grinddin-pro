@@ -146,7 +146,6 @@ function Index() {
         {/* Desktop nav — no hamburger, no separate FAQ page */}
         <nav className="hidden md:flex items-center gap-10">
           {[
-            { label: "Features", href: "#features" },
             { label: "Pricing",  href: "#pricing" },
             { label: "Reviews",  href: "#reviews" },
             { label: "FAQ",      href: "#faq" },
